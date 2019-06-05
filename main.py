@@ -52,10 +52,29 @@ Ease_least_friendly_2017 = df3[["country","2017"]].nlargest(10,"2017")
 
 ##### Top ten countries with minimum expense of setting up business:
 Cost_minimum_2017 = df1[["country","2017"]].nsmallest(10,"2017")
+Cost_minimum_2017.plot(kind="bar",x="country",y="2017",label="price = % over GNI per capita", alpha=0.4)
+plt.pyplot.legend(loc='upper right')
+plt.pyplot.title('Top ten countries with minimum expense of setting up business')
+plt.pyplot.show()
 
 ##### Top ten countries with maximum expense of setting up business:
 Cost_maximum_2017 = df1[["country","2017"]].nlargest(10,"2017")
+Cost_maximum_2017.plot(kind="bar",x="country",y="2017",label="price = % over GNI per capita", alpha=0.4)
+plt.pyplot.legend(loc='upper right')
+plt.pyplot.title('Top ten countries with maximum expense of setting up business')
+plt.pyplot.show()
 
+# List_A = []
+# for i in Cost_minimum_2017.country:
+#     if i in Ease_most_friendly_2017.country.tolist():
+#         List_A.append(i)
 
+# for i in List_A:
+#     print (df1[["country","2017"]][df1[["country","2017"]].country == str(i)])
+
+# List_B = list(set(Ease_most_friendly_2017.country.tolist()) - set(List_A))
+
+# for i in List_B:
+#     print (df1[["country","2017"]][df1[["country","2017"]].country == str(i)])
 
 
