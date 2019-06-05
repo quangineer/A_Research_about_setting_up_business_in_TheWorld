@@ -30,3 +30,24 @@ df3 = pd.read_csv("Ease.csv")
 # print (df1.loc[:,"country"])
 # print (df1[df1["2010"].isnull()])
 # print (df1["2013"].isnull().sum())
+
+# # print(df1["2017"])
+# df1.hist(color='b', label='costbiz2017')
+# plt.pyplot.legend(loc='upper right')
+# plt.pyplot.title('BusinessSetup2017')
+# plt.pyplot.xlabel('country')
+# plt.pyplot.ylabel('Cost')
+# plt.pyplot.show()
+
+
+s = pd.DataFrame({"A":["Mi","Do","Re","Fa","Son","La","Xi","DoDo"], "B":[1,1,0,1,0,0,0,1]})
+# s.where(s>0)
+# s.where(s["B"]>0, inplace=True)
+# a = s.where(s["B"]>0,10)
+# s.mask(s["B"]>0, inplace=True)
+# print (s)
+# print (a)
+
+survived = s.B == True
+died = s.B == False
+print (survived)

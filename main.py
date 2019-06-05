@@ -19,24 +19,43 @@ df1 = pd.read_csv("Cost.csv")
 df2 = pd.read_csv("Disclosure.csv")
 df3 = pd.read_csv("Ease.csv")
 
-# # print(df1["2017"])
-# df1.hist(color='b', label='costbiz2017')
+# df1.shape
+# df2.shape
+# df3.shape
+# (df1.isnull().sum())
+# (df2.isnull().sum())
+# (df3.isnull().sum())
+
+# (df1.iloc[:,-3:].describe())
+# (df2.iloc[:,-3:].describe())
+# (df3.iloc[:,:].describe())
+
+# df1.info()
+# df2.info()
+# df3.info()
+
+# #### Top ten countries finding it easiest to do businesses: (index=1 means the most friendly)
+Ease_most_friendly_2017 = df3[["country","2017"]].nsmallest(10,"2017")
+# Ease_most_friendly_2017.plot(kind="bar",x="country",y="2017",label="index2017", alpha=0.4)
 # plt.pyplot.legend(loc='upper right')
-# plt.pyplot.title('BusinessSetup2017')
-# plt.pyplot.xlabel('country')
-# plt.pyplot.ylabel('Cost')
+# plt.pyplot.title('Top ten countries finding it easiest to do businesses')
+# # plt.pyplot.show()
+
+
+##### Top ten countries finding it hardest to do businesses: (index=1 means the most friendly)
+Ease_least_friendly_2017 = df3[["country","2017"]].nlargest(10,"2017")
+# Ease_least_friendly_2017.plot(kind="bar",x="country",y="2017",label="index2017", alpha=0.4)
+# plt.pyplot.legend(loc='upper right')
+# plt.pyplot.title('Top ten countries finding it hardest to do businesses')
 # plt.pyplot.show()
 
-# print (df1["2017"].nlargest(20))
-# print (df1[(df1["2003"].nlargest(20))])
 
-# print(df1.nlargest(20, ["2003"]))
-# print(df1.nsmallest(20, ["2017"]))
-# print (df1["2003"])
-# print (df1[["2003","country"]].nlargest(20, "2003"))
+##### Top ten countries with minimum expense of setting up business:
+Cost_minimum_2017 = df1[["country","2017"]].nsmallest(10,"2017")
 
-a = (df1[["2003","country"]].nlargest(20, "2003"))
-a.plot(kind='bar',x='country',y='2003', color='y', label='Cost2003')
-plt.pyplot.legend(loc='upper right')
-plt.pyplot.title('Hardcore')
-plt.pyplot.show()
+##### Top ten countries with maximum expense of setting up business:
+Cost_maximum_2017 = df1[["country","2017"]].nlargest(10,"2017")
+
+
+
+
