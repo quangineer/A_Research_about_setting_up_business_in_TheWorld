@@ -51,3 +51,15 @@ s = pd.DataFrame({"A":["Mi","Do","Re","Fa","Son","La","Xi","DoDo"], "B":[1,1,0,1
 survived = s.B == True
 died = s.B == False
 print (survived)
+Rubbish
+# # Before the merge, we have to change the name of all columns in df_08 to distinguish from 2018 columns. 
+# Cost_minimum_2015.rename(lambda x: x[:] + "_15", axis=1, inplace=True)
+# Cost_minimum_2016.rename(lambda x: x[:] + "_16", axis=1, inplace=True)
+# Cost_minimum_2017.rename(lambda x: x[:] + "_17", axis=1, inplace=True)
+# print (Cost_minimum_2015)
+# print (Cost_minimum_2016)
+# print (Cost_minimum_2017)
+# # Merge 2 datasets:
+# df_combined = Cost_minimum_2015.merge(Cost_minimum_2016, left_on='country_15', right_on='country_16', how='outer')
+# print (df_combined)
+# # M = Cost_minimum_2015.append(Cost_minimum_2016, sort=False)

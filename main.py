@@ -50,11 +50,6 @@ Ease_least_friendly_2017 = df3[["country","2017"]].nlargest(10,"2017")
 # plt.pyplot.show()
 
 
-
-##### Top ten countries with minimum expense of setting up business in 2015:
-Cost_minimum_2015 = df1[["country","2015"]].nsmallest(10,"2015")
-##### Top ten countries with minimum expense of setting up business in 2016:
-Cost_minimum_2016 = df1[["country","2016"]].nsmallest(10,"2016")
 ##### Top ten countries with minimum expense of setting up business in 2017:
 Cost_minimum_2017 = df1[["country","2017"]].nsmallest(10,"2017")
 # Cost_minimum_2017.plot(kind="bar",x="country",y="2017",label="price = % over GNI per capita", alpha=0.4)
@@ -87,4 +82,20 @@ Cost_maximum_2017 = df1[["country","2017"]].nlargest(10,"2017")
 #     print (df1[["country","2017"]][df1[["country","2017"]].country == str(i)])
 
 
-M = Cost_minimum_2015.append(Cost_minimum_2016).append(Cost_minimum_2017)
+
+##### List all countries that have maximum cost of set-up business AND in the list of hardest countries:
+List_C = []
+for i in Cost_maximum_2017.country:
+    if i in Ease_least_friendly_2017.country.tolist():
+        List_C.append(i)
+# print (List_C)
+##### Get the values of cost of set-up business in each country in List_C:
+for i in List_C:
+    # print (df1[["country","2017"]][df1.country == str(i)])
+
+##### List all countries that are in the list of hardest countries BUT do Not appear in the maximum cost of set-up business:
+List_D = list(set(Ease_least_friendly_2017.country.tolist()) - set(List_C))
+# print (List_D)
+##### Get the values of cost of set-up business in each country in List_D:
+for i in List_D:
+    print (df1[["country","2017"]][df1.country == str(i)])
