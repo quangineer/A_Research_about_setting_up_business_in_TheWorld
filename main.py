@@ -110,7 +110,9 @@ List_E = []
 for i in Disclosure_High_2017.country:
     if i in Ease_most_friendly_2017.country.tolist():
         List_E.append(i)
-print (List_E)
+##### Get the value of each country disclosure index in list E:
+for i in List_E:
+    print (df2[["country",""2017"]][df2.country == str(i)])
 
 
 ##### Get the top ten of low disclosure countries in 2017:
