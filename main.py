@@ -112,7 +112,7 @@ for i in Disclosure_High_2017.country:
         List_E.append(i)
 ##### Get the value of each country disclosure index in list E:
 for i in List_E:
-    print (df2[["country",""2017"]][df2.country == str(i)])
+    print (df2[["country","2017"]][df2.country == str(i)])
 
 
 ##### Get the top ten of low disclosure countries in 2017:
