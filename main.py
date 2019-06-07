@@ -83,19 +83,35 @@ Cost_maximum_2017 = df1[["country","2017"]].nlargest(10,"2017")
 
 
 
-##### List all countries that have maximum cost of set-up business AND in the list of hardest countries:
-List_C = []
-for i in Cost_maximum_2017.country:
-    if i in Ease_least_friendly_2017.country.tolist():
-        List_C.append(i)
-# print (List_C)
-##### Get the values of cost of set-up business in each country in List_C:
-for i in List_C:
-    # print (df1[["country","2017"]][df1.country == str(i)])
+# ##### List all countries that have maximum cost of set-up business AND in the list of hardest countries:
+# List_C = []
+# for i in Cost_maximum_2017.country:
+#     if i in Ease_least_friendly_2017.country.tolist():
+#         List_C.append(i)
+# # print (List_C)
+# ##### Get the values of cost of set-up business in each country in List_C:
+# for i in List_C:
+#     # print (df1[["country","2017"]][df1.country == str(i)])
+#     pass
+# ##### List all countries that are in the list of hardest countries BUT do Not appear in the maximum cost of set-up business:
+# List_D = list(set(Ease_least_friendly_2017.country.tolist()) - set(List_C))
+# # print (List_D)
+# ##### Get the values of cost of set-up business in each country in List_D:
 
-##### List all countries that are in the list of hardest countries BUT do Not appear in the maximum cost of set-up business:
-List_D = list(set(Ease_least_friendly_2017.country.tolist()) - set(List_C))
-# print (List_D)
-##### Get the values of cost of set-up business in each country in List_D:
-for i in List_D:
-    print (df1[["country","2017"]][df1.country == str(i)])
+# for i in List_D:
+#     # print (df1[["country","2017"]][df1.country == str(i)])
+#     pass
+# print (df3)
+
+##### Get the top ten of high disclosure countries in 2017:
+Disclosure_High_2017 = df2[["country","2017"]].nlargest(10,"2017")
+##### List all the countries that in the top ten of high disclosure AND also in the list of easiest countries
+List_E = []
+for i in Disclosure_High_2017.country:
+    if i in Ease_most_friendly_2017.country.tolist():
+        List_E.append(i)
+print (List_E)
+
+
+##### Get the top ten of low disclosure countries in 2017:
+Disclosure_Low_2017 = df2[["country","2017"]].nsmallest(10,"2017")
